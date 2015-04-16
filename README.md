@@ -5,9 +5,9 @@
 
 ##Changelog
 
-v0.0.2 Added bootstrap typography and horizontal external static navigation menu
-v0.0.1 Added pure.css, jquery, modernizr
-v0.0.1 A very basic template
+* v0.0.2 Added bootstrap typography and horizontal external static navigation menu
+* v0.0.1 Added pure.css, jquery, modernizr
+* v0.0.1 A very basic template
 
 ##Install
 Download and unzip the package
