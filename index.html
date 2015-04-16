@@ -34,6 +34,54 @@
 		<!--[if lt IE 8]>
 		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
+		<!-- HEADER	-->        
+		<header id="page-header" class="text-uppercase affix">
+			<div class="logo"><img src="img/logo60.png" alt="logo"></div>
+			<div class="page-title"><a href="index.html" class="page-title">JAST</a></div>	
+			<nav id="jast-main-menu" class="clearfix h-nav dynamic scrollable pull-right">
+				<ul class="pull-right">
+					<li><a href="index.html">Home</a></li>
+					<li class="active">
+						<a href="components.html">Components</a>
+					</li>
+					<li>
+						<a href="templates.html">Menu1</a>
+						<ul>
+							<li>
+								<a href="xxx.html">Ciao</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="templates.html">Menu2</a>
+						<ul>
+							<li class="">
+								<a class="" href="xxx.html">Ciao</a>
+							</li>
+							<li>
+								<a href="xxx.html">Item</a>
+								<ul>
+									<li>
+										<a href="xxx.html">RIICiao</a>
+									</li>
+								</ul>
+							</li>
+							
+							<li class="">
+								<a class="" href="xxx.html">Ciao</a>
+							</li>
+						</ul>
+					</li>
+					<li class=""><a class="menu-item " role="menuitem" href="snippets.html">Snippets</a></li>
+					<li class=""><a class="menu-item " role="menuitem" href="contacts.html">Contacts</a></li>
+				</ul>	
+			</nav>
+			   
+		</header>
+	
+		<!-- / HEADER -->
+		<!-- page .container-->
+		
 		<div class="container">
 			<main class="main" role="main">
 				<article id="home" class="home-page">
@@ -46,6 +94,23 @@
 						</figure>
 						<h2><em>just another semantic template</em></h2>
 						<p><a href="https://github.com/orazionelson/jast/archive/master.zip">Download</a></p>
+						<p class="lead">JAST is a <mark>boilerplate</mark> template for <a href="" title="HTML5 Home">HTML5</a>, it uses <a href="#" title="CSS3 Home">CSS3</a> for styling and <a href="#" title="jQuery Home">jQuery</a> for interaction and complex rendering.</p>
+						<p>It has been thought pointing to some principles:</p>
+							<ul>
+								<li>Convention over Configuration,</li>
+								<li>Zero-conf,</li>
+								<li>KISS,</li>
+								<li>do not reinvent the wheel,</li>
+								<li>Separation of Concerns.</li>
+							</ul>
+						<p>The mark-up is <strong>as much as possible</strong> <span class="lead text-uppercase">semantic</span>, it means that:</p>
+						<blockquote><mark>JAST</mark> 
+						<em>uses semantic HTML5 tags</em> 
+						&amp; 
+						<em>makes a semantic use of classes for CSS3/JS</em>
+						</blockquote>
+						
+						
 						<blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in nisl pretium, fringilla quam quis, dignissim augue.</blockquote> 
 						<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque tempus, libero in suscipit euismod, nisi felis egestas sem, non sagittis risus tortor ut purus. Duis convallis sagittis metus non lacinia. In ultricies libero lectus, non facilisis lorem elementum id. Nam eleifend eros et nunc hendrerit dictum eget ut velit. In at lectus ut elit tempus pellentesque sit amet ac erat. Vestibulum blandit iaculis convallis.</p>
 
@@ -79,6 +144,12 @@
 								</section>
 						</section>
 					</section>
+				</article>
+				<article id="components" class="plain primary">
+					<header>
+						<h1 class="lead-item" data-item="Components">JAST Components</h1>
+					</header>
+					
 				</article>			
 			</main>						
 		</div>
@@ -92,6 +163,8 @@
 			<section id="copy-info">
 				<p>JAST 2015 by <a href="mailto:alfredo.cosco@gmail.com">Alfredo Cosco</a> | <a href="http://opensource.org/licenses/MIT">MIT Licence</a></p>
 			</section>
-		</footer>			
+		</footer>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>			
 	</body>
 </html>
