@@ -12,19 +12,18 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">	
 		<link rel="apple-touch-icon" href="apple-touch-icon.png">
 		<link rel="shortcut icon" href="favicon.png">
+		<!--pure.css embeds normalize-->
 		<link rel="stylesheet" href="css/pure.css">
+		<link rel="stylesheet" href="css/pure.styles.css">
+		<!--navigator-->
+		<link rel="stylesheet" href="css/nav.css">
+		<!--Bootstrap typography-->
+		<link rel="stylesheet" href="css/typography.css">
+		<!--main jast css-->
+		<link rel="stylesheet" href="css/main.css">
 		<!-- Custom styles for this template -->
 		<script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 		<style>
-		main {
-			margin:0 50px;
-			}
-		.left-side{
-			float:left
-			}
-		.right-side{
-			float:right
-			}
 		.clear{
 			clear:both;
 			}			
@@ -37,43 +36,43 @@
 		<!-- HEADER	-->        
 		<header id="page-header" class="text-uppercase affix">
 			<div class="logo"><img src="img/logo60.png" alt="logo"></div>
-			<div class="page-title"><a href="index.html" class="page-title">JAST</a></div>	
-			<nav id="jast-main-menu" class="clearfix h-nav dynamic scrollable pull-right">
-				<ul class="pull-right">
-					<li><a href="index.html">Home</a></li>
-					<li class="active">
-						<a href="components.html">Components</a>
-					</li>
-					<li>
-						<a href="templates.html">Menu1</a>
+			<div class="page-title"><a href="index.html" class="page-title">jast</a></div>	
+			<nav id="jast-main-menu" class="clearfix h-nav dynamic scrollable" role="navigation">
+				<ul class="pull-right" role="menubar">
+					<li class="active"><a href="index.html">Home</a></li>
+					<!--li>
+						<a href="components.html" role="menuitem" class="menu-item">Components</a>
+					</li-->
+					<!--li class="has-child">
+						<a href="templates.html" role="menuitem" class="menu-item">Menu1</a>
 						<ul>
 							<li>
-								<a href="xxx.html">Ciao</a>
+								<a href="submenu1.html" role="menuitem" class="menu-item">Submenu1</a>
 							</li>
 						</ul>
-					</li>
-					<li>
-						<a href="templates.html">Menu2</a>
+					</li-->
+					<!--li class="has-child">
+						<a href="templates.html" role="menuitem" class="menu-item">Menu2</a>
 						<ul>
 							<li class="">
-								<a class="" href="xxx.html">Ciao</a>
+								<a class="" href="submenu2.html" role="menuitem" class="menu-item">Submenu2</a>
 							</li>
-							<li>
-								<a href="xxx.html">Item</a>
+							<li class="has-child">
+								<a href="xxx.html" role="menuitem" class="menu-item">Item</a>
 								<ul>
 									<li>
-										<a href="xxx.html">RIICiao</a>
+										<a href="xxx.html" role="menuitem" class="menu-item">subItem</a>
 									</li>
 								</ul>
 							</li>
 							
-							<li class="">
-								<a class="" href="xxx.html">Ciao</a>
+							<li>
+								<a href="xxx.html" role="menuitem" class="menu-item">Hello World</a>
 							</li>
 						</ul>
-					</li>
-					<li class=""><a class="menu-item " role="menuitem" href="snippets.html">Snippets</a></li>
-					<li class=""><a class="menu-item " role="menuitem" href="contacts.html">Contacts</a></li>
+					</li-->
+					<!--li><a class="menu-item " role="menuitem" href="snippets.html">Snippets</a></li-->
+					<li><a class="menu-item " role="menuitem" href="contacts.html">Contacts</a></li>
 				</ul>	
 			</nav>
 			   
@@ -82,7 +81,7 @@
 		<!-- / HEADER -->
 		<!-- page .container-->
 		
-		<div class="container">
+		<div class="container clearfix" style="padding-top: 70px;">
 			<main class="main" role="main">
 				<article id="home" class="home-page">
 					<header>
