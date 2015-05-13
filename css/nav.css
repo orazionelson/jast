@@ -12,36 +12,11 @@
 @-o-viewport { width: device-width; }
 @viewport { width: device-width; }
 
-
-/* ==============
-    MOBILE Menu
-   ============== */
-
-#jast-mobile-menu ul{
-width:100%;
-}
-
-#mobile-menu-icon{
-	float:right;
-}
-
-#mobile-menu-icon a{
-	color:#eee;
-	background:transparent;
-}
-
-@media only screen and (min-width: 40em) { 
-	#mobile-menu-icon{
-		display:none;
-	}
-}
-
-
 /* ------------------------------------------
   Generic NAV STYLES
+  *  define rules valid for all the NAV element
   *  ex. a link in a nav doesn't have any decoration
 --------------------------------------------- */
-
 nav,
 nav *
  {
@@ -74,24 +49,68 @@ nav li a:focus
 	outline: 0;
 }
 
+/* ==============
+    MOBILE Menu
+   ============== */
 
-.slicknav_menu {
-	display:none;
-}
+#jast-mobile-menu ul{}
 
-.slicknav_btn{
-position:absolute;
-z-index:3;
-top:1%;
-right:1%;	
-}
+#mobile-menu-icon{}
 
-.slicknav_menutxt{
-	display:none;
-}
+#mobile-menu-icon a{}
+
+
+
+@media only screen and (min-width: 40em) {}
+
 
 @media screen and (max-width: 40em) {
-	/* #menu is the original menu */
+	.slicknav_menu {
+		display:none;
+	}
+	
+	.slicknav_btn{
+	position:absolute;
+	z-index:3;
+	top:1%;
+	right:1%;	
+	}
+	
+	.slicknav_menutxt{
+		display:none;
+	}
+	
+	/*
+    Mobile Menu Core Style
+	*/
+	
+	.slicknav_nav .slicknav_arrow { font-size: 0.8em; margin: 0 0 0 0.4em;}
+	.slicknav_nav .slicknav_item { cursor: pointer; }
+	.slicknav_nav .slicknav_row { display: block }
+	.slicknav_nav a { display: block }
+	
+	
+	.slicknav_nav .slicknav_item a,
+	.slicknav_nav .slicknav_parent-link a { display: inline }
+	
+	/* IE6/7 support */
+	.slicknav_menu { *zoom: 1 }
+	
+	
+	.slicknav_nav, .slicknav_nav ul {    
+	    overflow:hidden;
+	}
+	
+	.slicknav_nav a{	
+	    text-decoration:none;
+	    color:#fff;
+	}
+	
+	.slicknav_nav .slicknav_txtnode {
+	     margin-left:25px;   
+	}
+	
+
 	.js #jast-main-menu {
 		display:none;
 	}
@@ -158,7 +177,7 @@ border-bottom: 2px solid #fff; /*rgb(66, 184, 221)*/
 
 /*vertical navigator*/
 .v-nav li a { 
-  border-radius: 4px;
+  border-radius: none;
   padding:10px;
 }
 
@@ -175,7 +194,7 @@ border-bottom: 2px solid #fff; /*rgb(66, 184, 221)*/
 
 .v-nav li li {
   margin-top: 2px;
-  padding-left: 15px;
+  /*padding-left: 15px;*/
   font-size:90%;
 }
 

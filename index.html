@@ -7,7 +7,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>JAST: Just another Semantic Template v0.1</title>
+		<title>JAST: Just another Semantic Template v0.0.1</title>
 		<meta name="description" content="JAST is an HTML5 Semantic Boilerplate">
 		<meta name="viewport" content="width=device-width, initial-scale=1">	
 		<link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -15,10 +15,13 @@
 		<!--pure.css embeds normalize-->
 		<link rel="stylesheet" href="css/pure.css">
 		<link rel="stylesheet" href="css/pure.styles.css">
-		<!--navigator-->
+		<!-- Navigator -->
+		<link rel="stylesheet" href="css/slicknav.css">
 		<link rel="stylesheet" href="css/nav.css">
+		<!--icons-->
+		<link rel="stylesheet" href="css/font-awesome.min.css">	
 		<!--Bootstrap typography-->
-		<link rel="stylesheet" href="css/typography.css">
+		<!--link rel="stylesheet" href="css/typography.css"-->
 		<!--main jast css-->
 		<link rel="stylesheet" href="css/main.css">
 		<!-- Custom styles for this template -->
@@ -34,24 +37,26 @@
 		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
 		<!-- HEADER	-->        
-		<header id="page-header" class="text-uppercase affix">
+		<header role="banner" id="page-header" style="position:fixed">
 			<div class="logo"><img src="img/logo60.png" alt="logo"></div>
-			<div class="page-title"><a href="index.html" class="page-title">jast</a></div>	
-			<nav id="jast-main-menu" class="clearfix h-nav dynamic scrollable" role="navigation">
-				<ul class="pull-right" role="menubar">
-					<li class="active"><a href="index.html">Home</a></li>
-					<!--li>
+			<h1 class="page-title"><a href="index.html" class="page-title">JAST</a></h1>
+			
+			<nav id="jast-main-menu" class="clearfix h-nav" role="navigation">
+				<ul role="menubar">
+					<li class="active"><a class="menu-item" href="index.html">Home</a></li>
+					<li><a class="menu-item" role="menuitem" href="contacts.html">Contacts</a></li>
+					<li>
 						<a href="components.html" role="menuitem" class="menu-item">Components</a>
-					</li-->
-					<!--li class="has-child">
+					</li>
+					<li class="has-child">
 						<a href="templates.html" role="menuitem" class="menu-item">Menu1</a>
 						<ul>
 							<li>
 								<a href="submenu1.html" role="menuitem" class="menu-item">Submenu1</a>
 							</li>
 						</ul>
-					</li-->
-					<!--li class="has-child">
+					</li>
+					<li class="has-child">
 						<a href="templates.html" role="menuitem" class="menu-item">Menu2</a>
 						<ul>
 							<li class="">
@@ -70,9 +75,9 @@
 								<a href="xxx.html" role="menuitem" class="menu-item">Hello World</a>
 							</li>
 						</ul>
-					</li-->
-					<!--li><a class="menu-item " role="menuitem" href="snippets.html">Snippets</a></li-->
-					<li><a class="menu-item " role="menuitem" href="contacts.html">Contacts</a></li>
+					</li>
+					<li><a class="menu-item " role="menuitem" href="snippets.html">Snippets</a></li>
+					
 				</ul>	
 			</nav>
 			   
@@ -93,22 +98,14 @@
 						</figure>
 						<h2><em>just another semantic template</em></h2>
 						<p><a href="https://github.com/orazionelson/jast/archive/master.zip">Download</a></p>
-						<p class="lead">JAST is a <mark>boilerplate</mark> template for <a href="" title="HTML5 Home">HTML5</a>, it uses <a href="#" title="CSS3 Home">CSS3</a> for styling and <a href="#" title="jQuery Home">jQuery</a> for interaction and complex rendering.</p>
-						<p>It has been thought pointing to some principles:</p>
-							<ul>
-								<li>Convention over Configuration,</li>
-								<li>Zero-conf,</li>
-								<li>KISS,</li>
-								<li>do not reinvent the wheel,</li>
-								<li>Separation of Concerns.</li>
-							</ul>
+						<p class="lead">JAST is a <mark>boilerplate</mark> template for <a href="" title="HTML5 Home">HTML5</a>, it uses <a href="#" title="CSS3 Home">CSS3</a> for styling and <a href="#" title="jQuery Home">jQuery</a> for interactions and complex rendering.</p>
 						<p>The mark-up is <strong>as much as possible</strong> <span class="lead text-uppercase">semantic</span>, it means that:</p>
-						<blockquote><mark>JAST</mark> 
-						<em>uses semantic HTML5 tags</em> 
-						&amp; 
-						<em>makes a semantic use of classes for CSS3/JS</em>
+						<blockquote>
+							<mark>JAST</mark> 
+							<em>uses semantic HTML5 tags</em> &amp; 
+							<em>makes a semantic use of classes for CSS3/JS</em>
 						</blockquote>
-						
+						<p>The aim is to write a light&amp;easy mark-up to obtain some proptotyped objects</p>
 						
 						<blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in nisl pretium, fringilla quam quis, dignissim augue.</blockquote> 
 						<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque tempus, libero in suscipit euismod, nisi felis egestas sem, non sagittis risus tortor ut purus. Duis convallis sagittis metus non lacinia. In ultricies libero lectus, non facilisis lorem elementum id. Nam eleifend eros et nunc hendrerit dictum eget ut velit. In at lectus ut elit tempus pellentesque sit amet ac erat. Vestibulum blandit iaculis convallis.</p>
@@ -143,6 +140,9 @@
 								</section>
 						</section>
 					</section>
+					<footer>
+					This is the article footer: Author, Date, social links
+					</footer>
 				</article>
 				<article id="components" class="plain primary">
 					<header>
@@ -150,7 +150,25 @@
 					</header>
 					
 				</article>			
-			</main>						
+			</main>
+			<aside>
+				<div class="title">Menu</div>
+				<nav class="v-nav dynamic scrollable pull-right">
+				<ul>
+					<li><a href="#components">JAST Components</a>
+					<li><a href="#imported">Imported Components</a></li>								
+					<li><a href="#tabs">Tabs</a></li>
+					<li><a href="#dialogs">Dialogs</a></li>
+					<li><a href="#galleries">Galleries</a>
+						<ul>
+						<li><a href="#thumbs">Thumbnails</a></li>
+						<li><a href="#slides">Slides</a></li>
+						</ul>
+					</li>
+					<li><a href="#nicetohave">Nice to have</a></li>
+				</ul>
+				</nav>
+			</aside>						
 		</div>
 		<div class="clear"></div>
 		<footer>
@@ -165,8 +183,42 @@
 		</footer>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+		<script src="js/vendor/jquery.slicknav.js"></script>
+		<script src="js/plugins.js"></script>
+		<!--script src="js/main.js"></script-->
 		<!--HTML HELPER: Code ready for you $(document).ready jQuery code ;)
-		Just remove the comments.-->
-		<!--script>$(document).ready(function(){});</script-->			
+		Just remove the comments.-->		
+		<script>$(document).ready(function(){
+			$('#page-header').after('<div id="jast-mobile-menu" class="h-nav"></div>');
+			
+			$('#jast-main-menu').slicknav({
+			label: '',
+			prependTo: '#jast-mobile-menu',
+			closeOnClick: true,
+			init: function(){
+			//Adjust mobile menu: remove a nested with a
+				$( "#jast-mobile-menu a" )
+					.has( "a" )
+					//.attr('href', $( "#jast-mobile-menu li a a" ).attr('href'))
+					.find( "a:first" )
+					.contents()
+					.unwrap()
+					;
+				if($('#jast-main-menu').hasClass('scrollable')){$('#jast-mobile-menu').find('nav').addClass('scrollable')}
+				
+				if ($('#page-header').css("position") === "fixed") {
+					$('.slicknav_btn').css('position','fixed');
+					$('.slicknav_menu').css({
+						'position' : 'fixed',
+						'width' : '100%',
+						'top': $('#page-header').height()
+						});
+					$('.container').css({
+						'padding-top': ($('#page-header').height())+5
+						});/**/
+					} 	
+				},
+			});
+			});</script>	
 	</body>
 </html>
