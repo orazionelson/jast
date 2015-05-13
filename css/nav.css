@@ -59,24 +59,19 @@ nav li a:focus
 
 #mobile-menu-icon a{}
 
-
-
-@media only screen and (min-width: 40em) {}
-
-
 @media screen and (max-width: 40em) {
-	.slicknav_menu {
+	.mobilenav_menu {
 		display:none;
 	}
 	
-	.slicknav_btn{
+	.mobilenav_btn{
 	position:absolute;
 	z-index:3;
 	top:1%;
 	right:1%;	
 	}
 	
-	.slicknav_menutxt{
+	.mobilenav_menutxt{
 		display:none;
 	}
 	
@@ -84,29 +79,29 @@ nav li a:focus
     Mobile Menu Core Style
 	*/
 	
-	.slicknav_nav .slicknav_arrow { font-size: 0.8em; margin: 0 0 0 0.4em;}
-	.slicknav_nav .slicknav_item { cursor: pointer; }
-	.slicknav_nav .slicknav_row { display: block }
-	.slicknav_nav a { display: block }
+	.mobilenav_nav .mobilenav_arrow { font-size: 0.8em; margin: 0 0 0 0.4em;}
+	.mobilenav_nav .mobilenav_item { cursor: pointer; }
+	.mobilenav_nav .mobilenav_row { display: block }
+	.mobilenav_nav a { display: block }
 	
 	
-	.slicknav_nav .slicknav_item a,
-	.slicknav_nav .slicknav_parent-link a { display: inline }
+	.mobilenav_nav .mobilenav_item a,
+	.mobilenav_nav .mobilenav_parent-link a { display: inline }
 	
 	/* IE6/7 support */
-	.slicknav_menu { *zoom: 1 }
+	.mobilenav_menu { *zoom: 1 }
 	
 	
-	.slicknav_nav, .slicknav_nav ul {    
+	.mobilenav_nav, .mobilenav_nav ul {    
 	    overflow:hidden;
 	}
 	
-	.slicknav_nav a{	
+	.mobilenav_nav a{	
 	    text-decoration:none;
 	    color:#fff;
 	}
 	
-	.slicknav_nav .slicknav_txtnode {
+	.mobilenav_nav .mobilenav_txtnode {
 	     margin-left:25px;   
 	}
 	
@@ -115,7 +110,7 @@ nav li a:focus
 		display:none;
 	}
 	
-	.js .slicknav_menu {
+	.js .mobilenav_menu {
 		display:block;
 		background: rgb(202, 60, 60);
 	}
@@ -209,22 +204,27 @@ border-bottom: 2px solid #fff; /*rgb(66, 184, 221)*/
     font-size: small;
 }
 
+/*NON MOBILE*/
+/* VERTICAL MENU */
+
 @media screen and (min-width: 40em) {
- 
-.v-nav, .v-nav ul{
-	background:#ffffff;
-	display:block;
-	border-radius: 4px;
+	.v-nav, .v-nav ul{
+		background:#ffffff;
+		display:block;
+		border-radius: 4px;
+	} 
 }
 
- 
-}
-
-
+/*NON MOBILE*/
 /* HORIZONTAL MENU */
 @media screen and (min-width: 40em) {
+.mobilenav_btn {
+		display:none;
+	}
 
-
+.mobilenav_menu {
+		display:none;
+	}
 
 .h-nav {
 	width: 100%;
@@ -234,6 +234,7 @@ border-bottom: 2px solid #fff; /*rgb(66, 184, 221)*/
   .h-nav ul:first-child{
 	border: none;
 	margin-top: 28px;
+	float:right;
   }
   
   .h-nav li{	

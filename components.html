@@ -1,0 +1,226 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> 
+<html class="no-js" lang=""> <!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>JAST: Just another Semantic Template v0.0.1</title>
+		<meta name="description" content="JAST is an HTML5 Semantic Boilerplate">
+		<meta name="viewport" content="width=device-width, initial-scale=1">	
+		<link rel="apple-touch-icon" href="apple-touch-icon.png">
+		<link rel="shortcut icon" href="favicon.png">
+		<!--pure.css embeds normalize-->
+		<link rel="stylesheet" href="css/pure.css">
+		<link rel="stylesheet" href="css/pure.styles.css">
+		<!-- Navigator -->
+		<link rel="stylesheet" href="css/nav.css">
+		<!--icons-->
+		<link rel="stylesheet" href="css/font-awesome.min.css">	
+		<!--main jast css-->
+		<link rel="stylesheet" href="css/main.css">
+		<script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+	</head>
+	<body>
+		<!--[if lt IE 8]>
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+		<![endif]-->
+		<!-- HEADER	-->        
+		<header role="banner" id="page-header" class="affix">
+			<div class="logo"><img src="img/logo60.png" alt="logo"></div>
+			<h1 class="page-title"><a href="index.html" class="page-title">JAST</a></h1>
+			
+			<nav id="jast-main-menu" class="clearfix h-nav dynamic" role="navigation">
+				<ul role="menubar">
+					<li class="active"><a class="menu-item" href="index.html">Home</a></li>
+					
+					<li>
+						<a href="components.html" role="menuitem" class="menu-item">Components</a>
+					</li>
+					<li>
+						<a href="components.html" role="menuitem" class="menu-item">Demos</a>
+					</li>
+					<li class="has-child">
+						<a href="templates.html" role="menuitem" class="menu-item">Menu1</a>
+						<ul>
+							<li>
+								<a href="submenu1.html" role="menuitem" class="menu-item">Submenu1</a>
+							</li>
+						</ul>
+					</li>
+					<li class="has-child">
+						<a href="templates.html" role="menuitem" class="menu-item">Menu2</a>
+						<ul>
+							<li class="">
+								<a href="submenu2.html" role="menuitem" class="menu-item">Submenu2</a>
+							</li>
+							<li class="has-child">
+								<a href="xxx.html" role="menuitem" class="menu-item">Item</a>
+								<ul>
+									<li>
+										<a href="xxx.html" role="menuitem" class="menu-item">subItem</a>
+									</li>
+								</ul>
+							</li>
+							
+							<li>
+								<a href="xxx.html" role="menuitem" class="menu-item">Hello World</a>
+							</li>
+						</ul>
+					</li>
+					<li><a class="menu-item" role="menuitem" href="contacts.html">Contacts</a></li>
+				</ul>	
+			</nav>
+			   
+		</header>
+	
+		<!-- / HEADER -->
+		<!-- page .container-->
+		<main class="container clearfix" role="main">
+			<article>
+				<header>
+					<h1 class="lead-item" id="whatsup">What's up?</h1>
+				</header>
+				<section>
+					<figure>
+						<img src="img/jast-logo.svg" class="home-logo pull-right" alt="Jast Home Page">
+					</figure>
+					<h2 class="text-uppercase"><em>just another semantic template</em></h2>
+					<p class="lead">JAST is a <mark>boilerplate</mark> template for <a href="" title="HTML5 Home">HTML5</a>, it uses <a href="#" title="CSS3 Home">CSS3</a> for styling and <a href="#" title="jQuery Home">jQuery</a> for interactions and complex rendering.</p>
+					<p>The mark-up is <strong>as much as possible</strong> <span class="lead text-uppercase">semantic</span>, it means that:</p>
+					<blockquote>
+						<mark>JAST</mark> 
+						<em>uses semantic HTML5 tags</em> &amp; 
+						<em>makes a semantic use of classes for CSS3/JS</em>
+					</blockquote>
+					<p><a href="https://github.com/orazionelson/jast/archive/master.zip" class="button-success pure-button">Download <i class="fa fa-download"></i></a></p>
+				</section>
+			</article>
+			<article>
+				<header>
+					<h2 class="toc-item" id="components">Components</h2>
+				</header>
+				<section>
+					<h3 class="toc-item" id="intro">Intro</h3>					
+					<p>The aim is to write a light&amp;easy mark-up to obtain some proptotyped objects like:</p>
+					<ul>
+						<li>Horizontal Menu</li>
+						<li>Vertical Menu</li>
+						<li>Tabs</li>
+						<li>Dialogs</li>
+						<li>Images</li>
+						<li>Galleries</li>
+						<li>Slides</li>
+						<li>Grids</li>
+						<li>Tables</li>
+					</ul>
+				</section>
+				<section>
+					<h3 class="toc-item" id="hmenu">Horizontal Menu</h3>
+					<article class="jast-tabs" id="hmenutabs">
+						<section>
+							<h2>Selectors</h2>
+							<h4>Tag</h4>	
+							<p>nav</p>
+							<h4>Id</h4>
+							<p>#jast-main-menu, defines the main menu shown in MOBILE view.</p>
+							<h4>Classes</h4>
+							<ul>
+								<li>.h-nav, defines an horizontal menu</li>
+								<li>.dynamic, useful for one-page sites, finds the elements with '.lead-item' and '.toc-item' classes and renders a menu</li>
+								<li>.scrollable, useful for one-page sites, makes a smootk scroll</li>
+							</ul>
+						</section>
+						<section>
+							<h2>Examples</h2>
+							<p>Simple</p>
+						</section>
+					</article>
+				</section>
+				<section>
+					<h3 class="toc-item" id="vmenu">Vertical Menu</h3>
+					<article>
+						<h4>Selectors</h4>
+						<p>#jast-main-menu, defines the main menu showed in mobile version.</p>
+					</article>
+				</section>
+				<section>
+					<h3 class="toc-item" id="tabs">Tabs</h3>
+					<article id="tabs" class="jast-tabs">
+						<header>
+							<p>Just add the 'jast-tabs' class to the 'article' tag to have TABS.</p>
+						</header>
+						<section>
+						<h2>JAST</h2>
+							<figure class="left-side">
+								<img src="img/logo200.png" alt="Jast Logo">
+								<figcaption class="text-uppercase">jast</figcaption>
+							</figure>
+							<p>Tabn °1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices. Proin in est sed erat facilisis pharetra.</p>			
+						</section>
+						<section>
+							<h2>HTML5 Semantic</h2>
+							<p><strong>Tab n°2</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices. Proin in est sed erat facilisis pharetra.
+							Phasellus aliquam suscipit nulla. Aenean malesuada ultricies egestas. Integer viverra maximus massa, quis tincidunt augue. Suspendisse pellentesque sapien sem, et maximus tortor vehicula vitae. Sed eleifend porta lorem eget scelerisque. Quisque suscipit sit amet libero pretium pharetra. Phasellus maximus leo non augue convallis, a egestas lacus dignissim. Ut non dictum nibh. Aliquam sit amet tincidunt neque, eu dapibus tortor. Nulla nibh justo, dapibus sit amet tincidunt malesuada, vehicula at purus.
+							</p>
+						</section>
+						<section>
+							<h2>Templates</h2>
+							<p>Tab n°3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices. Proin in est sed erat facilisis pharetra.</p>
+						</section>
+						<footer>
+							<h3>Thanks for all the fish</h3>
+							<p>Footer No tab Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor.</p>
+						</footer>
+					</article>
+				</section>
+				<section>
+					<h3 class="toc-item" id="dialogs">Dialogs</h3>
+					
+				</section>	
+				<section>
+					<h3 class="toc-item" id="images">Images</h3>
+					
+				</section>
+				<section>
+					<h3 class="toc-item" id="galleries">Galleries</h3>
+					
+				</section>				
+				<section>
+					<h3 class="toc-item" id="slides">Slides</h3>
+					
+				</section>				
+				<section>
+					<h3 class="toc-item" id="grids">Grids</h3>
+					
+				</section>				
+				<section>
+					<h3 class="toc-item" id="tables">Tables</h3>
+					
+				</section>				
+			</article>
+					
+		</main>						
+		<footer class="text-center">
+			<div id="html5-logo">
+				<a href="http://www.w3.org/html/logo/">
+					<img src="http://www.w3.org/html/logo/badge/html5-badge-h-css3-performance-semantics.png" width="197" height="64" alt="HTML5 Powered with CSS3 / Styling, Performance &amp; Integration, and Semantics" title="HTML5 Powered with CSS3 / Styling, Performance &amp; Integration, and Semantics">
+				</a>
+			</div>
+			<section id="copy-info">
+				<h6>JAST 2015 by <a href="mailto:alfredo.cosco@gmail.com">Alfredo Cosco</a> | <a href="http://opensource.org/licenses/MIT">MIT Licence</a></h6>
+			</section>
+		</footer>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+		<script src="js/vendor/jquery.slicknav.js"></script>
+		<script src="js/plugins.js"></script>
+		<script src="js/main.js"></script>
+		<!--HTML HELPER: Code ready for you $(document).ready jQuery code ;)
+		Just remove the comments.		
+		<script>$(document).ready(function(){});</script>	
+		-->
+	</body>
+</html>

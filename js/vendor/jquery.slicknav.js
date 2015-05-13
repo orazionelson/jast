@@ -24,8 +24,8 @@
             open: function () {},
             close: function () {}
         },
-        mobileMenu = 'slicknav',
-        prefix = 'slicknav';
+        mobileMenu = 'mobilenav',
+        prefix = 'mobilenav';
 
     function Plugin(element, options) {
         this.element = element;

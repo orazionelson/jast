@@ -1,5 +1,100 @@
 (function ( $ ) {
 	
+	/**
+	 * Set same width in a group
+	 * by Alfredo Cosco 2015
+	 * */
+	$.fn.getSameWidth = function (){
+		var w=[];
+		var selector = this;
+		$(this).children().each(function(){
+			var val = $(this).outerWidth(); 
+			w.push(val);
+		});
+		var maxw = Math.max.apply(Math, w);
+		if($(this).children().css('display')=='inline-block'){
+			$(this).children().css('width', maxw);
+		}
+		else {$(this).children().css('width', 'auto');}
+		
+		$(window).resize(function () {
+			$(selector).getSameWidth();
+		});
+	};
+	
+	/**
+	 * Create Tabs
+	 * by Alfredo Cosco
+	 * 2015
+	 * **/
+	$.fn.jastTabs = function (){
+	
+	
+	 $(this).each(function(){
+		var tabsId= this.id;
+		$(this).addClass('jast-tabs-style');
+		//Wrap the sections in one div
+		//Default: $( ".jast-tabs section" )
+		//and add them progressive id: tab1, tab2, tab3...
+		$(this)
+		.find('section')
+		.wrapAll( '<div class="tabs-sections" />')
+		.each(function(i, tab) {
+			tab.id = tabsId+"tab" + (i+1); //i starts at 0
+		});
+							
+		var title=[];
+		var titles = $(this).find('section h2').hide();
+		
+		$(titles).each(function(i){						
+			title.push('<a href="#'+tabsId+'tab'+(i+1)+'" id="link-tab'+(i+1)+'">'+titles[i]['innerHTML']+'</a>');
+			});
+
+		var tabsMenu=title.join("</li>\n<li>");
+		
+		//Print the tab menu
+		$(this).find('.tabs-sections').before('<ul class="tab-stripes"><li>'+tabsMenu+'</li></ul>');
+		
+		// Code found at http://www.jacklmoore.com/notes/jquery-tabs/
+		// For each set of tabs, we want to keep track of
+		// which tab is active and it's associated content
+		var active; 
+		var content;
+		var links = $(this).find('a');
+
+		// If the location.hash matches one of the links, use that as the active tab.
+		// If no match is found, use the first link as the initial active tab.
+		active = $(links.filter('[href="'+location.hash+'"]')[0] || links[0]);
+		active.closest('li').addClass('active');
+		content = $(active[0].hash);
+
+		// Hide the remaining content
+		links.not(active).each(function () {
+			$(this.hash).hide();
+		});
+
+		// Bind the click event handler
+		$(this).on('click', 'a', function(e){
+			// Make the old tab inactive.
+			active.closest('li').removeClass('active');
+			content.hide();
+
+			// Update the variables with the new link and content
+			active = $(this);
+			content = $(this.hash);
+
+			// Make the tab active.
+			active.addClass('active');
+			active.closest('li').addClass('active');
+			content.show();
+
+			// Prevent the anchor's default click action
+			e.preventDefault();			
+			});
+		});
+		
+	};
+	
 	/*******************************************
 	 * Dynamically charge script
 	 * in function of selectors/ids/classes.
@@ -41,29 +136,7 @@
 	    }, time);           
 	}
 		
-	/**
-	 * Set same width in a group
-	 * by Alfredo Cosco 2015
-	 * */
-	$.fn.getSameWidth = function (){
-		var w=[];
-		var selector = this;
-		$(this).children().each(function(){
-		var val = $(this).outerWidth(); 
-		w.push(val);
-		});
-		//console.log($(this).children().css('display'));
-		var maxw = Math.max.apply(Math, w);
-		if($(this).children().css('display')=='inline-block'){
-		$(this).children().css('width', maxw);
-		}
-		else {$(this).children().css('width', 'auto');}
-		
-		$(window).resize(function () {
-			//console.log($(selector));
-			$(selector).getSameWidth();
-			});
-	};
+
 	
 	/**
 	 * Put style only on the first letter of each word in a phrase
@@ -148,78 +221,7 @@
                 $(preEl[i]).html(content);
 			}	
 	};
-	/**
-	 * Create Tabs
-	 * by Alfredo Cosco
-	 * 2015
-	 * **/
-	$.fn.jastTabs = function (){
 	
-	
-	 $(this).each(function(){
-		
-		$(this).addClass('jast-tabs-style');
-		//Wrap the sections in one div
-		//Default: $( ".jast-tabs section" )
-		//and add them progressive id: tab1, tab2, tab3...
-		$(this)
-		.find('section')
-		.wrapAll( '<div class="tabs-sections" />')
-		.each(function(i, tab) {
-			tab.id = "tab" + (i+1); //i starts at 0
-		});
-							
-		var title=[];
-		var titles = $(this).find('section h2').hide();
-		
-		$(titles).each(function(i){						
-			title.push('<a href="#tab'+(i+1)+'" id="link-tab'+(i+1)+'">'+titles[i]['innerHTML']+'</a>');
-			});
-
-		var tabsMenu=title.join("</li>\n<li>");
-		
-		//Print the tab menu
-		$(this).find('.tabs-sections').before('<ul><li>'+tabsMenu+'</li></ul>');
-		
-		// Code found at http://www.jacklmoore.com/notes/jquery-tabs/
-		// For each set of tabs, we want to keep track of
-		// which tab is active and it's associated content
-		var active; 
-		var content;
-		var links = $(this).find('a');
-
-		// If the location.hash matches one of the links, use that as the active tab.
-		// If no match is found, use the first link as the initial active tab.
-		active = $(links.filter('[href="'+location.hash+'"]')[0] || links[0]);
-		active.closest('li').addClass('active');
-		content = $(active[0].hash);
-
-		// Hide the remaining content
-		links.not(active).each(function () {
-			$(this.hash).hide();
-		});
-
-		// Bind the click event handler
-		$(this).on('click', 'a', function(e){
-			// Make the old tab inactive.
-			active.closest('li').removeClass('active');
-			content.hide();
-
-			// Update the variables with the new link and content
-			active = $(this);
-			content = $(this.hash);
-
-			// Make the tab active.
-			active.addClass('active');
-			active.closest('li').addClass('active');
-			content.show();
-
-			// Prevent the anchor's default click action
-			e.preventDefault();			
-			});
-		});
-		
-	};
 
 	/**
 	 * Function for the JAST Dialogs
@@ -494,10 +496,10 @@ function getClosest(el, tag) {
 	            } while(cnt < (curLv - lv));
 	        }
 	        li = elm.appendChild(document.createElement("li"));
-	        var target = getClosest(node, 'article');
+	        //var target = getClosest(node, 'article');
 	        //console.log();
 	        // replace the next line with archor tags or whatever you want
-	        li.innerHTML = '<a href="#'+target.id+'" role="menuitem">'+node.innerHTML+'</a>';
+	        li.innerHTML = '<a href="#'+node.id+'" role="menuitem">'+node.innerHTML+'</a>';
 	        // recursive call
 	        buildRec(nodes, elm, lv + cnt);
     }
@@ -568,7 +570,7 @@ $(document).ready(function(){
 			for(var i = all.length; i--; nodes.unshift(all[i]));
 			
 			var lead = $('h1.lead-item').text();
-			var leadHref = $('h1.lead-item').closest('article').attr('id');
+			var leadHref = $('h1.lead-item').attr('id');//closest('article').attr('id');
 			//console.log(lead);
 			var result = document.createElement("ul");
 			
@@ -598,36 +600,34 @@ $(document).ready(function(){
 
 		//Add class="menu-item" e role="menuitem" to each nav element
 		//Create mobile navigator of #jast-main-menu
-		$('#jast-main-menu').slicknav({
-			label: '',
-			prependTo: '#jast-mobile-menu',
-			closeOnClick: true,
-			init: function(){
-			//Adjust mobile menu: remove a nested with a
-				$( "#jast-mobile-menu a" )
-					.has( "a" )
-					//.attr('href', $( "#jast-mobile-menu li a a" ).attr('href'))
-					.find( "a:first" )
-					.contents()
-					.unwrap()
-					;
-				if($('#jast-main-menu').hasClass('scrollable')){$('#jast-mobile-menu').find('nav').addClass('scrollable')}
-				
-				if ($('#page-header').css("position") === "fixed") {
-					$('.slicknav_btn').css('position','fixed');
-					$('.slicknav_menu').css({
-						'position':'fixed',
-						'top': $('#page-header').height()
-						});
-					$('.container').css({
-						'padding-top': ($('#page-header').height())+5
-						});
-					} 	
-				},
-			open: function () {
-				
-				}
-			});
+		$('#jast-main-menu').mobilenav({
+		label: '',
+		prependTo: '#jast-mobile-menu',
+		closeOnClick: true,
+		init: function(){
+		//Adjust mobile menu: remove a nested with a
+			$( "#jast-mobile-menu a" )
+				.has( "a" )
+				//.attr('href', $( "#jast-mobile-menu li a a" ).attr('href'))
+				.find( "a:first" )
+				.contents()
+				.unwrap()
+				;
+			if($('#jast-main-menu').hasClass('scrollable')){$('#jast-mobile-menu').find('nav').addClass('scrollable')}
+			
+			if ($('#page-header').css("position") === "fixed") {
+				$('.mobilenav_btn').css('position','fixed');
+				$('.mobilenav_menu').css({
+					'position' : 'fixed',
+					'width' : '100%',
+					'top': $('#page-header').height()
+					});
+				$('.container').css({
+					'padding-top': ($('#page-header').height())+5
+					});
+				} 	
+			},
+		});
 		
 		
 		//3) Option:class:Scrollable
