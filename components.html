@@ -32,7 +32,7 @@
 			<div class="logo"><img src="img/logo60.png" alt="logo"></div>
 			<h1 class="page-title"><a href="index.html" class="page-title">JAST</a></h1>
 			
-			<nav id="jast-main-menu" class="clearfix h-nav dynamic" role="navigation">
+			<nav id="jast-main-menu" class="clearfix h-nav" role="navigation">
 				<ul role="menubar">
 					<li class="active"><a class="menu-item" href="index.html">Home</a></li>
 					
@@ -79,6 +79,10 @@
 		<!-- / HEADER -->
 		<!-- page .container-->
 		<main class="container clearfix" role="main">
+			<aside>
+				<nav class="v-nav dynamic scrollable fixed pull-right">
+				</nav>
+			</aside>
 			<article>
 				<header>
 					<h1 class="lead-item" id="whatsup">What's up?</h1>
@@ -141,9 +145,24 @@
 				</section>
 				<section>
 					<h3 class="toc-item" id="vmenu">Vertical Menu</h3>
-					<article>
-						<h4>Selectors</h4>
-						<p>#jast-main-menu, defines the main menu showed in mobile version.</p>
+					<article class="jast-tabs" id="vmenutabs">
+						<section>
+							<h2>Selectors</h2>
+							<h4>Tag</h4>	
+							<p>nav</p>
+							<h4>Id</h4>
+							<p>#jast-main-menu, defines the main menu shown in MOBILE view.</p>
+							<h4>Classes</h4>
+							<ul>
+								<li>.v-nav, defines an horizontal menu</li>
+								<li>.dynamic, useful for one-page sites, finds the elements with '.lead-item' and '.toc-item' classes and renders a menu</li>
+								<li>.scrollable, useful for one-page sites, makes a smootk scroll</li>
+							</ul>
+						</section>
+						<section>
+							<h2>Examples</h2>
+							<p>Simple</p>
+						</section>
 					</article>
 				</section>
 				<section>
@@ -201,7 +220,7 @@
 					
 				</section>				
 			</article>
-					
+		
 		</main>						
 		<footer class="text-center">
 			<div id="html5-logo">

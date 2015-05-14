@@ -416,7 +416,7 @@ function manageControls(position,numberOfSlides){
 
 
 function jastTopFixedVnav(){
-	if($('.v-nav').hasClass('top-fixed')){
+	if($('.v-nav').hasClass('fixed')){
 				var vmargin = $('.v-nav').offset();
 				//console.log(margin);
 				var topMargin = vmargin.top;

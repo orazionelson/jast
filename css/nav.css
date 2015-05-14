@@ -125,6 +125,7 @@ nav li a:focus
 /*Horizontal Navigator*/
 .h-nav{
 	background: inherit;
+	
 }
 
 
@@ -177,7 +178,11 @@ border-bottom: 2px solid #fff; /*rgb(66, 184, 221)*/
 }
 
 .v-nav li + li {
-  margin-left: 2px;
+  padding:0;
+}
+
+.v-nav li li a.menu-item {
+  padding-left: 25px;
 }
 
 .v-nav li.active a,

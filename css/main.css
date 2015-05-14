@@ -76,12 +76,22 @@ main {
 	border-top:1px solid #000000;	
 	text-align: justify;
     margin:0;
-	width: 100%;
+	width: 95%;
+}
+
+main > article{
+padding: 0 4%; 
+width:65%;
+float:left;
+}
+
+main > aside{
+width:20%;
+float:right;
 }
 
 article{
   /*min-height: 800px;*/
-  padding: 0 20px;
   text-align:left;
 }
 
@@ -119,7 +129,6 @@ dialog {
 background: rgb(202, 60, 60);
 height:65px;
 width:100%;
-
 }
 
 /* Vertical alignment for images
@@ -197,7 +206,7 @@ padding:0;
 }
 
 
-.container aside {
+/* .container aside {
     border-top: 2px solid #CCC;
 }
 
@@ -206,22 +215,22 @@ aside .title {
     padding: 10px 10px;
     border-bottom:1px solid #DDD;
     background: #EEE;
-/*    margin: 0 auto;
+   margin: 0 auto;
     
-    font-weight:bold;*/
-}
+    font-weight:bold;
+}*/
 
 
 /* ==============
     MOBILE: Main
    ============== */
-
+/*
 
 .container {
     margin:0;
 }
 
-/*main article h1 {
+main article h1 {
     font-size: 2em;
     font-weight:bolder;
 }
@@ -235,16 +244,16 @@ main article h3 {
     font-style: italic;
 }*/
 
-.container aside
+/*.container aside
  {
     color: #111;
-    /*padding: 5px 4% 10px;*/
+    padding: 5px 4% 10px;
 }
-
+*//*
 .container nav {
-/*margin: 0;
-padding: 0 0 20px 0;*/
-}
+margin: 0;
+padding: 0 0 20px 0;
+}*/
 
 
 .footer-container footer {
@@ -437,9 +446,7 @@ height:12px;
     WIDE: Main
    ============ */
 
-    .container main {
-        float: left;
-        width: 65%;
+   /* .container main {
     }
 
     .container aside {
@@ -449,8 +456,8 @@ height:12px;
     
     .container nav {
 		float:left;
-        /*width: 30%;*/
-    }
+        width: 30%;
+    }*/
     
 /*JAST Added*/
 .left-side{
