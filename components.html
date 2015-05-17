@@ -34,13 +34,13 @@
 			
 			<nav id="jast-main-menu" class="clearfix h-nav" role="navigation">
 				<ul role="menubar">
-					<li class="active"><a class="menu-item" href="index.html">Home</a></li>
+					<li><a class="menu-item" href="index.html">Home</a></li>
 					
-					<li>
+					<li class="active">
 						<a href="components.html" role="menuitem" class="menu-item">Components</a>
 					</li>
 					<li>
-						<a href="components.html" role="menuitem" class="menu-item">Demos</a>
+						<a href="demos.html" role="menuitem" class="menu-item">Demos</a>
 					</li>
 					<li class="has-child">
 						<a href="templates.html" role="menuitem" class="menu-item">Menu1</a>
@@ -106,21 +106,23 @@
 				<header>
 					<h2 class="toc-item" id="components">Components</h2>
 				</header>
-				<section>
-					<h3 class="toc-item" id="intro">Intro</h3>					
-					<p>The aim is to write a light&amp;easy mark-up to obtain some proptotyped objects like:</p>
-					<ul>
-						<li>Horizontal Menu</li>
-						<li>Vertical Menu</li>
-						<li>Tabs</li>
-						<li>Dialogs</li>
-						<li>Images</li>
-						<li>Galleries</li>
-						<li>Slides</li>
-						<li>Grids</li>
-						<li>Tables</li>
-					</ul>
-				</section>
+				<p>The aim is to write a light&amp;easy mark-up to obtain some proptotyped objects like:</p>
+				<ul>
+					<li>Horizontal Menu</li>
+					<li>Vertical Menu</li>
+					<li>Tabs</li>
+					<li>Dialogs</li>
+					<li>Images</li>
+					<li>Galleries</li>
+					<li>Slides</li>
+					<li>Grids</li>
+					<li>Tables</li>
+				</ul>
+			</article>
+			<article>
+				<header>
+					<h2 class="toc-item" id="menus">Menus</h2>
+				</header>
 				<section>
 					<h3 class="toc-item" id="hmenu">Horizontal Menu</h3>
 					<article class="jast-tabs" id="hmenutabs">
@@ -165,44 +167,108 @@
 						</section>
 					</article>
 				</section>
+			</article>
+			<article>
+				<header>
+					<h2 class="toc-item" id="tabs">Tabs</h2>
+				</header>	
 				<section>
-					<h3 class="toc-item" id="tabs">Tabs</h3>
-					<article id="tabs" class="jast-tabs">
+					<article id="jtabs" class="jast-tabs">
 						<header>
+							<p>Organize your contents in tabs is easy!</p>
 							<p>Just add the 'jast-tabs' class to the 'article' tag to have TABS.</p>
 						</header>
 						<section>
-						<h2>JAST</h2>
-							<figure class="left-side">
+							<h2>Tabs</h2>
+							<figure class="pull-left">
 								<img src="img/logo200.png" alt="Jast Logo">
 								<figcaption class="text-uppercase">jast</figcaption>
 							</figure>
-							<p>Tabn °1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices. Proin in est sed erat facilisis pharetra.</p>			
+							<p>TABs are <strong>section</strong> tags nested in an <strong>article</strong> element, the <strong>h2</strong> title renders the tab label, the <strong>.jast-tabs</strong> class triggers the trasformations.</p>
 						</section>
 						<section>
-							<h2>HTML5 Semantic</h2>
-							<p><strong>Tab n°2</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices. Proin in est sed erat facilisis pharetra.
-							Phasellus aliquam suscipit nulla. Aenean malesuada ultricies egestas. Integer viverra maximus massa, quis tincidunt augue. Suspendisse pellentesque sapien sem, et maximus tortor vehicula vitae. Sed eleifend porta lorem eget scelerisque. Quisque suscipit sit amet libero pretium pharetra. Phasellus maximus leo non augue convallis, a egestas lacus dignissim. Ut non dictum nibh. Aliquam sit amet tincidunt neque, eu dapibus tortor. Nulla nibh justo, dapibus sit amet tincidunt malesuada, vehicula at purus.
-							</p>
+							<h2>Example</h2>
+							<p><a href="demos/tabs.html" class="button-success pure-button">See demo <i class="fa fa-cog"></i></a></p>
+							<pre>
+								<article class="jast-tabs">
+									<header>
+										<h2>TabLorem</h2>
+									</header>
+									<section>
+									<h2>Tab1</h2>
+										<p>Tabn °1</p>
+									</section>
+									<section>
+										<h2>Tab2</h2>
+										<p>Tab n°2</p>
+									</section>
+									<section>
+										<h2>Tab3</h2>
+										<p>Tab n°3</p>
+									</section>
+								</article>
+							</pre>
 						</section>
-						<section>
-							<h2>Templates</h2>
-							<p>Tab n°3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices. Proin in est sed erat facilisis pharetra.</p>
-						</section>
-						<footer>
-							<h3>Thanks for all the fish</h3>
-							<p>Footer No tab Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor.</p>
-						</footer>
-					</article>
+					</article>	
 				</section>
+			</article>
+			<article>
+				<header>
+					<h2 class="toc-item" id="content-slider">Content Slider</h2>
+				</header>
 				<section>
-					<h3 class="toc-item" id="dialogs">Dialogs</h3>
-					
-				</section>	
+				<article id="jcs" class="jast-tabs">
+						<header>
+							<p>Organize your contents in slides is easy too!</p>
+							<p>Just add the 'jast-content-slider' class to the 'article' tag to have sliding contents.</p>
+						</header>
+						<section>
+							<h2>Contents slider</h2>
+							<figure class="pull-right">
+								<img src="img/logo200.png" alt="Jast Logo">
+								<figcaption class="text-uppercase">jast</figcaption>
+							</figure>
+							<p>Slides are <strong>section</strong> tags nested in an <strong>article</strong> element, the <strong>h2</strong> title renders the slide label, the <strong>.jast-content-slider</strong> class triggers the trasformations.</p>
+						</section>
+						<section>
+							<h2>Example</h2>
+							<p><a href="demos/contentslider.html" class="button-success pure-button">See demo <i class="fa fa-cog"></i></a></p>
+							<pre>
+								<article class="jast-content-slider">
+									<header>
+										<h2>Slides</h2>
+									</header>
+									<section>
+									<h2>Slide1</h2>
+										<p>Slide n°1</p>
+									</section>
+									<section>
+										<h2>Slide2</h2>
+										<p>Slide n°2</p>
+									</section>
+									<section>
+										<h2>Slide3</h2>
+										<p>Slide n°3</p>
+									</section>
+								</article>
+							</pre>
+						</section>
+					</article>	
+				</section>
+			</article>
+			<article>
+				<h2 class="toc-item" id="dialogs">Dialogs</h2>
+				<section>
+					<h3 class="toc-item" id="dialogs">Dialogs</h3>					
+				</section>
+			</article>
+			<article>	
 				<section>
 					<h3 class="toc-item" id="images">Images</h3>
 					
 				</section>
+			</article>
+			<article>	
 				<section>
 					<h3 class="toc-item" id="galleries">Galleries</h3>
 					
@@ -224,15 +290,15 @@
 		</main>						
 		<footer class="text-center">
 			<div id="html5-logo">
-				<a href="http://www.w3.org/html/logo/">
+				<!--a href="http://www.w3.org/html/logo/">
 					<img src="http://www.w3.org/html/logo/badge/html5-badge-h-css3-performance-semantics.png" width="197" height="64" alt="HTML5 Powered with CSS3 / Styling, Performance &amp; Integration, and Semantics" title="HTML5 Powered with CSS3 / Styling, Performance &amp; Integration, and Semantics">
-				</a>
+				</a-->
 			</div>
 			<section id="copy-info">
 				<h6>JAST 2015 by <a href="mailto:alfredo.cosco@gmail.com">Alfredo Cosco</a> | <a href="http://opensource.org/licenses/MIT">MIT Licence</a></h6>
 			</section>
 		</footer>
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<!--script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script-->
 		<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 		<script src="js/vendor/jquery.slicknav.js"></script>
 		<script src="js/plugins.js"></script>

@@ -23,7 +23,7 @@
 	};
 	
 	/**
-	 * Create Tabs
+	 * Organize an article as Tabs
 	 * by Alfredo Cosco
 	 * 2015
 	 * **/
@@ -47,7 +47,7 @@
 		var titles = $(this).find('section h2').hide();
 		
 		$(titles).each(function(i){						
-			title.push('<a href="#'+tabsId+'tab'+(i+1)+'" id="link-tab'+(i+1)+'">'+titles[i]['innerHTML']+'</a>');
+			title.push('<a href="#'+tabsId+'tab'+(i+1)+'" class="tab-labels" id="link-tab'+(i+1)+'">'+titles[i]['innerHTML']+'</a>');
 			});
 
 		var tabsMenu=title.join("</li>\n<li>");
@@ -60,7 +60,7 @@
 		// which tab is active and it's associated content
 		var active; 
 		var content;
-		var links = $(this).find('a');
+		var links = $(this).find('a.tab-labels');
 
 		// If the location.hash matches one of the links, use that as the active tab.
 		// If no match is found, use the first link as the initial active tab.
@@ -74,7 +74,7 @@
 		});
 
 		// Bind the click event handler
-		$(this).on('click', 'a', function(e){
+		$(this).on('click', 'a.tab-labels', function(e){
 			// Make the old tab inactive.
 			active.closest('li').removeClass('active');
 			content.hide();
@@ -93,6 +93,85 @@
 			});
 		});
 		
+	};
+
+	/*****
+	 * Make a pretty 'pre' for your code
+	 * by Alfredo Cosco 2015
+	 * source: http://stackoverflow.com/questions/4631646/how-to-preserve-whitespace-indentation-of-text-enclosed-in-html-pre-tags-exclu
+	 * */
+	$.fn.jastPrettyPre = function (){
+		var preEl = $(this);
+		
+		for (var i = 0; i < preEl.length; i++)
+			{	
+			var content = $(preEl[i]).html()
+					.replace(/[<>]/g, function(m) { return {'<':'&lt;','>':'&gt;'}[m]})
+					.replace(/((ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?)/gi,'<a href="$1">$1</a>')
+					;						
+			var tabs_to_remove = '';
+			while (content.indexOf('\t') == '0')
+			{
+			  tabs_to_remove += '\t';
+			  content = content.substring(1);
+			}
+			var re = new RegExp('\n' + tabs_to_remove, 'g');
+			content = content.replace(re, '\n');              
+			$(preEl[i]).html(content);
+			}	
+		};
+	
+	/**
+	 * Organize an article as Tabs
+	 * by Alfredo Cosco
+	 * 2015
+	 * **/
+	$.fn.jastContentSlider = function (){		
+		//Set preliminary vars 
+		var slidesId= this.id;		
+		var currentPosition = 0;
+		//calculate article container width	
+		var mainWidth = $(this).width();
+		var gutterWidth = (mainWidth/10);
+		
+		var sectionNumber = $(this).find('section').length;
+		
+		//Create and configure slides container
+		$(this)
+		.find('section')
+		.wrapAll( '<div class="slides-sections clearfix" />')
+		.each(function(i, slide) {
+			slide.id = slidesId+"tab" + (i+1); //i starts at 0
+		});
+		
+		var slideSectionWidth = mainWidth * sectionNumber * 1.3;		
+		$('.slides-sections').width(slideSectionWidth);
+		
+		$(this).find('section').width(gutterWidth*8).css({
+			'marginRight':gutterWidth+'px',
+			'marginLeft':gutterWidth+'px'
+			});
+		
+		//build pagination
+		$(this).find('footer').before('<div class="content-slider-pagination" />');
+		$(this).find('.content-slider-pagination').append('<button class="pure-css button-success content-slider-control" id="leftcsControl"><i class="fa fa-arrow-left fa-2x"></i></button><button class="pure-css button-success content-slider-control" id="rightcsControl"><i class="fa fa-arrow-right fa-2x"></i></button>');
+		
+		if(currentPosition==0){ $('#leftcsControl').prop( "disabled", true ); } else{ $('#leftcsControl').prop( "disabled", false ); }
+		// Hide right arrow if position is last slide
+		if(currentPosition==sectionNumber-1){ $('#rightcsControl').prop( "disabled", true ); } else{ $('#rightcsControl').prop( "disabled", false ); }
+		
+		$('.content-slider-control')
+	    .on('click', function(){
+			// Determine new position
+			currentPosition = ($(this).attr('id')=='rightcsControl') ? currentPosition+1 : currentPosition-1;
+			if(currentPosition==0){ $('#leftcsControl').prop( "disabled", true ); } else{ $('#leftcsControl').prop( "disabled", false ); }
+			// Hide right arrow if position is last slide
+			if(currentPosition==sectionNumber-1){ $('#rightcsControl').prop( "disabled", true ); } else{ $('#rightcsControl').prop( "disabled", false ); }
+			
+			$('.slides-sections').animate({
+			'marginLeft' : mainWidth*(-currentPosition)
+			});
+		});
 	};
 	
 	/*******************************************
@@ -195,33 +274,7 @@
 		
 		//Make a pretty pre
 		$('.show-me-the-code pre').jastPrettyPre();
-	};
-	
-	/*****
-	 * Make a pretty 'pre'
-	 * by Alfredo Cosco 2015
-	 * source: http://stackoverflow.com/questions/4631646/how-to-preserve-whitespace-indentation-of-text-enclosed-in-html-pre-tags-exclu
-	 * */
-	$.fn.jastPrettyPre = function (){
-		var preEl = $(this);
-		//console.log(preEl);	
-		for (var i = 0; i < preEl.length; i++)
-			{
-				var content = $(preEl[i]).html();
-				//
-				var tabs_to_remove = '';
-                while (content.indexOf('\t') == '0')
-                {
-                  tabs_to_remove += '\t';
-                  content = content.substring(1);
-                }
-                var re = new RegExp('\n' + tabs_to_remove, 'g');
-                content = content.replace(re, '\n');
-                
-                $(preEl[i]).html(content);
-			}	
-	};
-	
+	};	
 
 	/**
 	 * Function for the JAST Dialogs
@@ -772,15 +825,17 @@ $(document).ready(function(){
 		else {console.log("don't need for "+ hook +" : "+ src);}
 		}
 
+	//Optional
+	$('pre').jastPrettyPre();
 	
 	//Default selectors	
 	$('.jast-tabs').jastTabs();
+	$('.jast-content-slider').jastContentSlider();
 	$('.jast-code-box').jastCodeBox();
 	$('.jast-first-letter').jastFirstLetter();				
 	$('.same-width').getSameWidth();
 	
-	//Optional
-	$('pre').jastPrettyPre();
+	
 
 	
 });

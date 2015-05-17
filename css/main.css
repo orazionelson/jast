@@ -79,16 +79,7 @@ main {
 	width: 95%;
 }
 
-main > article{
-padding: 0 4%; 
-width:65%;
-float:left;
-}
 
-main > aside{
-width:20%;
-float:right;
-}
 
 article{
   /*min-height: 800px;*/
@@ -639,6 +630,23 @@ blockquote {
   border-left: 5px solid #eee;
 }
 
+/*Code tags rendering by Bootstrap*/
+pre {
+  overflow: auto;
+}
+
+code,
+kbd,
+pre,
+samp {
+  background:#ccc;
+  border-radius: 6px;
+  padding-left:10px;
+  font-family: monospace, monospace;
+  font-size: 0.9em;
+}
+
+
 /**************************************************************
  * JAST TABS
  * by: Alfredo Cosco 
@@ -647,6 +655,17 @@ blockquote {
  * source: http://www.sitepoint.com/css3-tabs-using-target-selector/
  **************************************************************/
 @media only screen and (min-width: 768px) {	
+	main > article{
+	padding: 0 4%; 
+	width:65%;
+	float:left;
+	}
+	
+	main > aside{
+	width:20%;
+	float:right;
+	}
+
 
 	.jast-tabs-style header{
 		padding-bottom:20px;
@@ -696,6 +715,25 @@ blockquote {
 
 }
 /*End of TABS*/
+/**************************************************************
+ * JAST Content Slider
+ * by: Alfredo Cosco 
+ * date: MAy 2015
+ **************************************************************/
+.jast-content-slider{
+	overflow:hidden;
+}
+
+.jast-content-slider section{
+	float:left;
+}
+
+.slides-sections{
+}
+
+.content-slider-pagination{
+	text-align:center;
+}
 
 /* ==========================================================================
    Print styles
