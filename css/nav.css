@@ -65,8 +65,8 @@ nav li a:focus
 	}
 	
 	.mobilenav_btn{
-	position:absolute;
-	z-index:3;
+	/*position:absolute;*/
+	z-index:5;
 	top:1%;
 	right:1%;	
 	}

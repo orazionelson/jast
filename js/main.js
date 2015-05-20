@@ -141,7 +141,7 @@
 		.find('section')
 		.wrapAll( '<div class="slides-sections clearfix" />')
 		.each(function(i, slide) {
-			slide.id = slidesId+"tab" + (i+1); //i starts at 0
+			slide.id = slidesId+"slide" + (i+1); //i starts at 0
 		});
 		
 		var slideSectionWidth = mainWidth * sectionNumber * 1.3;		
@@ -153,7 +153,7 @@
 			});
 		
 		//build pagination
-		$(this).find('footer').before('<div class="content-slider-pagination" />');
+		$(this).find('.slides-sections ').after('<div class="content-slider-pagination" />');
 		$(this).find('.content-slider-pagination').append('<button class="pure-css button-success content-slider-control" id="leftcsControl"><i class="fa fa-arrow-left fa-2x"></i></button><button class="pure-css button-success content-slider-control" id="rightcsControl"><i class="fa fa-arrow-right fa-2x"></i></button>');
 		
 		if(currentPosition==0){ $('#leftcsControl').prop( "disabled", true ); } else{ $('#leftcsControl').prop( "disabled", false ); }
@@ -174,26 +174,147 @@
 		});
 	};
 	
-	/*******************************************
-	 * Dynamically charge script
-	 * in function of selectors/ids/classes.
-	 * A very basically use of: 
-	 * http://api.jquery.com/jquery.getscript/
+		/**
+	 * Functions for the JAST gallery: normal/thumbnails
+	 * by Alfredo Cosco
+	 * 2015
+	 * **/	
+	$.fn.jastGallery = function (){
+	
+	$(this).each(function(){
+				
+		var galleryId = this.id;
+		
+		//make images responsive
+		$(this).find('img').addClass('img-responsive center-block');
+		
+		//set shapes
+		if($(this).hasClass('rounded')){
+			$(this).find('img').addClass('img-rounded');
+			}
+		else if($(this).hasClass('circle')){
+			$(this).find('img').addClass('img-circle');
+			}
+		
+		//thumbs or slider
+		if($(this).hasClass('thumbs')){
+			//$(this).find('img');							
+			src=[]
+			$(this).find('img').each(function(i) {
+				src.push($(this).attr('src'));
+			}).addClass('img-thumbnail');				
+			$(this).find('figure').each(function(i) {
+				var figcaption = $(this).find('figcaption').text();
+			
+			//build the link for the lightbox
+				$(this).wrapInner( '<a href="'+src[i]+'" data-lightbox="'+galleryId+'" data-title="'+figcaption+'"> </a>');
+			
+			//Add alt attribute to images using caption if alt is not set 
+				$(this).find('img:not([alt])').attr('alt', figcaption);
+				});
+			$(this).find('figcaption').addClass('caption');	
+			}
+		else if($(this).hasClass('slides')){
+			
+			var currentPosition = 0;
+			//calculate article container width	
+			var mainWidth = $(this).width();
+			var gutterWidth = (mainWidth/10);
+		    
+		    var figureNumber = $(this).find('figure').length;
+		    
+			var imgWidth = (gutterWidth*6.5);
+			
+			$(this).find('img').addClass('img-responsive center-block');
+			
+
+			$(this).find('figure')
+			.wrapAll('<div class="slideshow" />')
+			.each(function(i, slide) {
+				slide.id = galleryId+"slide" + (i+1); //i starts at 0
+			});
+			
+			
+			$(this).find('figcaption').addClass('caption');
+			
+			
+			var slideFigureWidth = mainWidth * figureNumber * 1.3;		
+			$('.slideshow').width(slideFigureWidth);
+		
+			$(this).find('figure').width(gutterWidth*8).css({
+				'marginRight':gutterWidth+'px',
+				'marginLeft':gutterWidth+'px'
+			});
+			
+			$(this).find('.slideshow').after('<div class="content-slider-pagination" />');
+			$(this).find('.content-slider-pagination').append('<button class="pure-css button-success content-slider-control leftSlideControl"><i class="fa fa-arrow-left fa-2x"></i></button><button class="pure-css button-success content-slider-control rightSlideControl"><i class="fa fa-arrow-right fa-2x"></i></button>');
+			
+			$('.content-slider-control')
+			.on('click', function(){
+				// Determine new position
+				currentPosition = ($(this).hasClass('rightSlideControl')) ? currentPosition+1 : currentPosition-1;
+				if(currentPosition==0){ $('.leftSlideControl').prop( "disabled", true ); } else{ $('.leftSlideControl').prop( "disabled", false ); }
+				// Hide right arrow if position is last slide
+				if(currentPosition==figureNumber-1){ $('.rightSlideControl').prop( "disabled", true ); } else{ $('.rightSlideControl').prop( "disabled", false ); }
+				
+				$('.slideshow').animate({
+					'marginLeft' : mainWidth*(-currentPosition)
+					});
+			});
+			
+			var selector=this;
+			
+				$(window).resize(function () {
+					$('.slideshow').animate({
+						'marginLeft' : 0
+					});
+					$('.content-slider-pagination').remove();
+					$(selector).find('figure').unwrap();
+				
+					$('.jast-gallery').jastGallery();
+				});					
+			}		
+		});
+	}
+/** / gallery **/
+ 
+	
+	/**
+	 * Manage vertical top fixed menu
 	 * by Alfredo Cosco 2015
-	 * ****************************************/
-	$.cachedScript = function( url, options ) {
-	 
-	  // Allow user to set any option except for dataType, cache, and url
-	  options = $.extend( options || {}, {
-	    dataType: "script",
-	    cache: true,
-	    url: url
-	  });
-	 
-	  // Use $.ajax() since it is more flexible than $.getScript
-	  // Return the jqXHR object so we can chain callbacks
-	  return jQuery.ajax( options );
+	 * */
+	 $.jastTopFixedVnav = function(selector){
+		 
+		if($(selector).hasClass('fixed')){
+			
+		var vmargin = $(selector).offset();
+		
+		var topMargin = vmargin.top;
+		var leftMargin = vmargin.left;
+		var navHeight = $(selector).css('height');
+		var navWidth = $(selector).parent().css('width');
+		
+		
+		
+		$(selector).css({
+			'position' : 'fixed',
+			'top' : topMargin+'px',
+			'left': leftMargin+'px',
+			'width': navWidth
+			});
+			
+		$(window).resize(function () {
+			console.log(selector);
+			$(selector).removeAttr( "style" );
+			$.jastTopFixedVnav(selector);
+		});
+		
+		
+		$('.v-nav').css('height', navHeight);
+		}
 	};
+	
+
 
 	/**
 	 * Source: http://www.dconnell.co.uk/blog/index.php/2012/03/12/scroll-to-any-element-using-jquery/
@@ -215,7 +336,26 @@
 	    }, time);           
 	}
 		
-
+	/*******************************************
+	 * Dynamically charge script
+	 * in function of selectors/ids/classes.
+	 * A very basically use of: 
+	 * http://api.jquery.com/jquery.getscript/
+	 * by Alfredo Cosco 2015
+	 * ****************************************/
+	$.cachedScript = function( url, options ) {
+	 
+	  // Allow user to set any option except for dataType, cache, and url
+	  options = $.extend( options || {}, {
+	    dataType: "script",
+	    cache: true,
+	    url: url
+	  });
+	 
+	  // Use $.ajax() since it is more flexible than $.getScript
+	  // Return the jqXHR object so we can chain callbacks
+	  return jQuery.ajax( options );
+	};
 	
 	/**
 	 * Put style only on the first letter of each word in a phrase
@@ -315,60 +455,7 @@
 		};
 	};
 	
-	/**
-	 * Functions for the JAST gallery: normal/thumbnails
-	 * by Alfredo Cosco
-	 * 2015
-	 * **/	
-	$.fn.jastGallery = function (){
-	
-	$(this).each(function(){
-		
-		
-		var galleryId = this.id;
-		
-		$(this).find('section').addClass('clearfix');
-		
-		//make images responsive
-		$(this).find('img').addClass('img-responsive center-block');
-		
-		//set shapes
-		if($(this).hasClass('rounded')){
-			$(this).find('img').addClass('img-rounded');
-			}
-		else if($(this).hasClass('circle')){
-			$(this).find('img').addClass('img-circle');
-			}
-		
-		//thumbs or slider
-		if($(this).hasClass('thumbs')){
-			//$(this).find('img');							
-			src=[]
-			$(this).find('img').each(function(i) {
-				src.push($(this).attr('src'));
-			}).addClass('img-thumbnail');				
-			$(this).find('figure').each(function(i) {
-				var figcaption = $(this).find('figcaption').text();
-			
-			//build the link for the lightbox
-				$(this).wrapInner( '<a href="'+src[i]+'" data-lightbox="'+galleryId+'" data-title="'+figcaption+'"> </a>');
-			
-			//Add alt attribute to images using caption if alt is not set 
-				$(this).find('img:not([alt])').attr('alt', figcaption);
-				});
-			$(this).find('figcaption').addClass('caption');	
-			}
-		else if($(this).hasClass('slides')){
-			$(this).find('figure').wrapAll('<div class="slideshow" />').wrapAll( '<div class="slidesContainer" />');
-			$(this).find('figure').addClass('slide');
-			$(this).find('figcaption').addClass('caption');
-			//Make slides 
-			jastSlider(this);
-			}		
-		});
-	}
-/** / gallery **/
- 
+
 	
 
 	
@@ -379,7 +466,7 @@
  * Functions for the JAST Slider gallery
  * by Alfredo Cosco
  * 2015
- * **/
+ * *
 function jastSlider(obj){
 	//Make default
 	//Remove .controls and .slideInner
@@ -468,26 +555,7 @@ function manageControls(position,numberOfSlides){
 /** / slider **/
 
 
-function jastTopFixedVnav(){
-	if($('.v-nav').hasClass('fixed')){
-				var vmargin = $('.v-nav').offset();
-				//console.log(margin);
-				var topMargin = vmargin.top;
-				var leftMargin = vmargin.left;
-				var navHeight = $('.v-nav').css('height');
-				var navWidth = $('.v-nav').css('width');
-				$('.v-nav').find('ul').first().css({
-					'position' : 'fixed',
-					'top' : topMargin,
-					'left': leftMargin,
-					'width': navWidth
-					});
-					
-				$('aside').first().css('margin-top', navHeight);
-				
-				//$('.v-nav').css('height', navHeight);
-				}
-	}
+
 
 
 
@@ -628,10 +696,7 @@ $(document).ready(function(){
 			var result = document.createElement("ul");
 			
 			buildRec(nodes, result, 2);
-			/*$('nav.dynamic').each(function(){
-				// Create dynamic menu
-			buildRec(nodes, result, 2);
-			});*/
+
 			$("nav.dynamic").append(result);
 			$("nav.dynamic").each(function(){
 				$(this).find('ul').first().prepend('<li><a href="#'+leadHref+'"><i class="fa fa-home fa-lg"></i> '+lead+'</a></li>');
@@ -669,7 +734,8 @@ $(document).ready(function(){
 			if($('#jast-main-menu').hasClass('scrollable')){$('#jast-mobile-menu').find('nav').addClass('scrollable')}
 			
 			if ($('#page-header').css("position") === "fixed") {
-				$('.mobilenav_btn').css('position','fixed');
+				//$('#page-header').css('z-index','3');
+				$('.mobilenav_btn').css('position','fixed');//.css('z-index','6');
 				$('.mobilenav_menu').css({
 					'position' : 'fixed',
 					'width' : '100%',
@@ -712,7 +778,7 @@ $(document).ready(function(){
 	    $("nav li ul").closest('li').addClass("has-child");
 		$("nav ul a").addClass("menu-item");
 		
-		jastTopFixedVnav();
+		$.jastTopFixedVnav('.v-nav');
 		
 		//$('.h-nav li li').last().css('border', '4px solid blue');
 		
@@ -784,7 +850,7 @@ $(document).ready(function(){
 	 * with dependencies and call them only if needed
 	 * by Alfredo Cosco
 	 * cfr. cachedScript function
-	 * **/
+	 * *
 	var matrix = {};
 	var matrix = {
 		dialogs:{ 
@@ -824,13 +890,15 @@ $(document).ready(function(){
 		} 
 		else {console.log("don't need for "+ hook +" : "+ src);}
 		}
-
+*/
 	//Optional
 	$('pre').jastPrettyPre();
 	
 	//Default selectors	
 	$('.jast-tabs').jastTabs();
 	$('.jast-content-slider').jastContentSlider();
+	$('.jast-gallery').jastGallery();
+	
 	$('.jast-code-box').jastCodeBox();
 	$('.jast-first-letter').jastFirstLetter();				
 	$('.same-width').getSameWidth();
@@ -845,8 +913,8 @@ $(document).ready(function(){
  * 
  ***********************/
 $(window).resize(function () {
-jastSlider('.slides');//run on every window resize
-jastTopFixedVnav();
+//jastSlider('.slides');//run on every window resize
+//jastTopFixedVnav();
 //$('.same-width').getSameWidth();
 //console.log(slideWidth);
 });

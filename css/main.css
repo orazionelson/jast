@@ -102,13 +102,17 @@ margin-bottom:20px;
 }
 
 figure{
-	margin: 1em 40px;
 	text-align:center;
 }
 
+.jast-gallery figure img{
+	margin: 0 auto;
+}
+
 figcaption{
-/*font-style:italic;
-font-size:80%;*/
+	font-style:italic;
+	font-size:90%;
+	margin-bottom:20px;
 }
 
 dialog {  
@@ -253,7 +257,11 @@ padding: 0 0 20px 0;
 }
 
 .affix {
-  position: fixed;
+  position:fixed;
+}
+
+header.affix{
+	
 }
 
 /* ===============
@@ -284,7 +292,6 @@ color:#FF0000;
 .slideshow {
 	margin:0 auto;
 	background:transparent;
-	position:relative;
 }
 
 .slidesContainer {
@@ -716,15 +723,15 @@ samp {
 }
 /*End of TABS*/
 /**************************************************************
- * JAST Content Slider
+ * JAST Content/Picture Slider
  * by: Alfredo Cosco 
  * date: MAy 2015
  **************************************************************/
-.jast-content-slider{
+.jast-content-slider, .jast-gallery.slides {
 	overflow:hidden;
 }
 
-.jast-content-slider section{
+.jast-content-slider section, .slideshow figure{
 	float:left;
 }
 

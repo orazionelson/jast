@@ -7,7 +7,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>JAST: Just another Semantic Template v0.0.1</title>
+		<title>JAST: Just another Semantic Template</title>
 		<meta name="description" content="JAST is an HTML5 Semantic Boilerplate">
 		<meta name="viewport" content="width=device-width, initial-scale=1">	
 		<link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -138,11 +138,12 @@
 								<li>.dynamic, useful for one-page sites, finds the elements with '.lead-item' and '.toc-item' classes and renders a menu</li>
 								<li>.scrollable, useful for one-page sites, makes a smootk scroll</li>
 							</ul>
+							<p><a href="demos/hmenu.html" class="button-success pure-button">See demo <i class="fa fa-cog"></i></a></p>
 						</section>
-						<section>
+						<!--section>
 							<h2>Examples</h2>
 							<p>Simple</p>
-						</section>
+						</section-->
 					</article>
 				</section>
 				<section>
@@ -160,123 +161,183 @@
 								<li>.dynamic, useful for one-page sites, finds the elements with '.lead-item' and '.toc-item' classes and renders a menu</li>
 								<li>.scrollable, useful for one-page sites, makes a smootk scroll</li>
 							</ul>
+							<p><a href="demos/vmenu.html" class="button-success pure-button">See demo <i class="fa fa-cog"></i></a></p>
 						</section>
-						<section>
+						<!--section>
 							<h2>Examples</h2>
 							<p>Simple</p>
-						</section>
+						</section-->
 					</article>
 				</section>
 			</article>
-			<article>
+			<article id="jtabs" class="jast-tabs">				
 				<header>
 					<h2 class="toc-item" id="tabs">Tabs</h2>
-				</header>	
+				</header>
 				<section>
-					<article id="jtabs" class="jast-tabs">
-						<header>
-							<p>Organize your contents in tabs is easy!</p>
-							<p>Just add the 'jast-tabs' class to the 'article' tag to have TABS.</p>
-						</header>
-						<section>
-							<h2>Tabs</h2>
-							<figure class="pull-left">
-								<img src="img/logo200.png" alt="Jast Logo">
-								<figcaption class="text-uppercase">jast</figcaption>
-							</figure>
-							<p>TABs are <strong>section</strong> tags nested in an <strong>article</strong> element, the <strong>h2</strong> title renders the tab label, the <strong>.jast-tabs</strong> class triggers the trasformations.</p>
-						</section>
-						<section>
-							<h2>Example</h2>
-							<p><a href="demos/tabs.html" class="button-success pure-button">See demo <i class="fa fa-cog"></i></a></p>
-							<pre>
-								<article class="jast-tabs">
-									<header>
-										<h2>TabLorem</h2>
-									</header>
-									<section>
-									<h2>Tab1</h2>
-										<p>Tabn °1</p>
-									</section>
-									<section>
-										<h2>Tab2</h2>
-										<p>Tab n°2</p>
-									</section>
-									<section>
-										<h2>Tab3</h2>
-										<p>Tab n°3</p>
-									</section>
-								</article>
-							</pre>
-						</section>
-					</article>	
+					<h2>Tabs</h2>
+					<figure class="pull-left">
+						<img src="img/logo200.png" alt="Jast Logo">
+						<figcaption class="text-uppercase">jast</figcaption>
+					</figure>
+					<p>Organize your contents in tabs is easy!</p>
+					<p>Just add the 'jast-tabs' class to the 'article' tag to have TABS.</p>
+					<p>TABs are <strong>section</strong> tags nested in an <strong>article</strong> element, the <strong>h2</strong> title renders the tab label, the <strong>.jast-tabs</strong> class triggers the trasformations.</p>
 				</section>
-			</article>
-			<article>
+				<section>
+					<h2>Example</h2>
+					<p><a href="demos/tabs.html" class="button-success pure-button">See demo <i class="fa fa-cog"></i></a></p>
+					<pre>
+						<article class="jast-tabs">
+							<header>
+								<h2>TabLorem</h2>
+							</header>
+							<section>
+							<h2>Tab1</h2>
+								<p>Tabn °1</p>
+							</section>
+							<section>
+								<h2>Tab2</h2>
+								<p>Tab n°2</p>
+							</section>
+							<section>
+								<h2>Tab3</h2>
+								<p>Tab n°3</p>
+							</section>
+						</article>
+					</pre>
+				</section>
+			</article>	
+			<article id="jcs" class="jast-tabs">				
 				<header>
 					<h2 class="toc-item" id="content-slider">Content Slider</h2>
 				</header>
 				<section>
-				<article id="jcs" class="jast-tabs">
-						<header>
-							<p>Organize your contents in slides is easy too!</p>
-							<p>Just add the 'jast-content-slider' class to the 'article' tag to have sliding contents.</p>
-						</header>
+					<h2>Contents slider</h2>
+					<figure class="pull-right">
+						<img src="img/logo200.png" alt="Jast Logo">
+						<figcaption class="text-uppercase">jast</figcaption>
+					</figure>
+					<p>Organize your contents in slides is easy too!</p>
+					<p>Just add the 'jast-content-slider' class to the 'article' tag to have sliding contents.</p>
+					<p>Slides are <strong>section</strong> tags nested in an <strong>article</strong> element, the <strong>h2</strong> title renders the slide label, the <strong>.jast-content-slider</strong> class triggers the trasformations.</p>
+				</section>
+				<section>
+					<h2>Example</h2>
+					<p><a href="demos/contentslider.html" class="button-success pure-button">See demo <i class="fa fa-cog"></i></a></p>
+					<pre>
+						<article class="jast-content-slider">
+							<header>
+								<h2>Slides</h2>
+							</header>
+							<section>
+							<h2>Slide1</h2>
+								<p>Slide n°1</p>
+							</section>
+							<section>
+								<h2>Slide2</h2>
+								<p>Slide n°2</p>
+							</section>
+							<section>
+								<h2>Slide3</h2>
+								<p>Slide n°3</p>
+							</section>
+						</article>
+					</pre>
+				</section>
+			</article>
+			<article>
+				<header>
+					<h2 class="toc-item" id="galleries">Galleries</h2>
+				</header>
+				<section>
+					<h3 class="toc-item" id="thumbs-gallery">Thumbs and lightbox</h3>
+					<article class="jast-tabs" id="thumbs-tabs">
 						<section>
-							<h2>Contents slider</h2>
-							<figure class="pull-right">
-								<img src="img/logo200.png" alt="Jast Logo">
-								<figcaption class="text-uppercase">jast</figcaption>
-							</figure>
-							<p>Slides are <strong>section</strong> tags nested in an <strong>article</strong> element, the <strong>h2</strong> title renders the slide label, the <strong>.jast-content-slider</strong> class triggers the trasformations.</p>
+							<h2>Selectors</h2>
+							<p>The class <strong>.jast-gallery</strong> triggers the trasformations to a gallery. The mark up is similar to a common content page but with <strong>figure</strong> instead of <strong>section</strong></p>
+							<h4>Classes</h4>
+							<ul>
+								<li>.jast-gallery: the trigger</li>
+								<li>.rounded/.circle: define the images shape (see Bootstrap images documentation for more info)</li>
+								<li>.thumbs: define the type of gallery</li>
+							</ul>
 						</section>
 						<section>
-							<h2>Example</h2>
-							<p><a href="demos/contentslider.html" class="button-success pure-button">See demo <i class="fa fa-cog"></i></a></p>
+							<h2>Examples</h2>
+							<p><a href="demos/thumbs_lightbox.html" class="button-success pure-button">See demo <i class="fa fa-cog"></i></a></p>
 							<pre>
-								<article class="jast-content-slider">
-									<header>
-										<h2>Slides</h2>
-									</header>
-									<section>
-									<h2>Slide1</h2>
-										<p>Slide n°1</p>
-									</section>
-									<section>
-										<h2>Slide2</h2>
-										<p>Slide n°2</p>
-									</section>
-									<section>
-										<h2>Slide3</h2>
-										<p>Slide n°3</p>
-									</section>
+								<article id="my-town" class="jast-gallery rounded thumbs">
+									<h2>My gallery</h2>
+									<figure>
+										<img src="img/land1.jpg">
+										<figcaption>Landscape 1</figcaption>						
+									</figure>
+									<figure>
+										<img src="img/land2.jpg">
+										<figcaption>Landscape 2</figcaption>
+									</figure>
+									<figure>
+										<img src="img/land3.jpg">
+										<figcaption>Landscape 3</figcaption>					
+									</figure>
+									<figure>
+										<img src="img/land4.jpg">
+										<figcaption>Landscape 4</figcaption>
+									</figure>
 								</article>
 							</pre>
 						</section>
-					</article>	
+					</article>
 				</section>
-			</article>
+				<section>
+					<h3 class="toc-item" id="slides-gallery">Slideshow</h3>
+					<article class="jast-tabs" id="slides-tabs">
+						<section>
+							<h2>Selectors</h2>
+							<p>The class <strong>.jast-gallery</strong> triggers the trasformations to a gallery. The mark up is similar to a common content page but with <strong>figure</strong> instead of <strong>section</strong></p>
+							<h4>Classes</h4>
+							<ul>
+								<li>.jast-gallery: the trigger</li>
+								<li>.rounded/.circle: define the images shape (see Bootstrap images documentation for more info)</li>
+								<li>.slides: define the type of gallery</li>
+							</ul>
+						</section>
+						<section>
+							<h2>Examples</h2>
+							<p><a href="demos/slideshow.html" class="button-success pure-button">See demo <i class="fa fa-cog"></i></a></p>
+							<pre>
+								<article id="my-town" class="jast-gallery slides">
+									<h2>My gallery</h2>
+									<figure>
+										<img src="img/land1.jpg">
+										<figcaption>Landscape 1</figcaption>						
+									</figure>
+									<figure>
+										<img src="img/land2.jpg">
+										<figcaption>Landscape 2</figcaption>
+									</figure>
+									<figure>
+										<img src="img/land3.jpg">
+										<figcaption>Landscape 3</figcaption>					
+									</figure>
+									<figure>
+										<img src="img/land4.jpg">
+										<figcaption>Landscape 4</figcaption>
+									</figure>
+								</article>
+							</pre>
+						</section>
+					</article>
+				</section>									
+			</article>	
 			<article>
 				<h2 class="toc-item" id="dialogs">Dialogs</h2>
 				<section>
 					<h3 class="toc-item" id="dialogs">Dialogs</h3>					
 				</section>
 			</article>
-			<article>	
-				<section>
-					<h3 class="toc-item" id="images">Images</h3>
-					
-				</section>
-			</article>
-			<article>	
-				<section>
-					<h3 class="toc-item" id="galleries">Galleries</h3>
-					
-				</section>				
-				<section>
-					<h3 class="toc-item" id="slides">Slides</h3>
-					
-				</section>				
+			<article>									
 				<section>
 					<h3 class="toc-item" id="grids">Grids</h3>
 					
@@ -290,9 +351,9 @@
 		</main>						
 		<footer class="text-center">
 			<div id="html5-logo">
-				<!--a href="http://www.w3.org/html/logo/">
+				<a href="http://www.w3.org/html/logo/">
 					<img src="http://www.w3.org/html/logo/badge/html5-badge-h-css3-performance-semantics.png" width="197" height="64" alt="HTML5 Powered with CSS3 / Styling, Performance &amp; Integration, and Semantics" title="HTML5 Powered with CSS3 / Styling, Performance &amp; Integration, and Semantics">
-				</a-->
+				</a>
 			</div>
 			<section id="copy-info">
 				<h6>JAST 2015 by <a href="mailto:alfredo.cosco@gmail.com">Alfredo Cosco</a> | <a href="http://opensource.org/licenses/MIT">MIT Licence</a></h6>

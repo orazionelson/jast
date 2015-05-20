@@ -4,6 +4,7 @@
 * version 0.0.6
 
 ##Changelog
+* V0.0.7 Added Galleries views
 * V0.0.6 Added a Content Slider view
 * V0.0.5 Added a Vertical Menu and Tabs
 * V0.0.4 Added an home page, reviewed some mark up and some js code
