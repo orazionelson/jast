@@ -1,9 +1,10 @@
 # JAST Just Another Semantic Template
 
 * See the site http://orazionelson.github.io/jast/
-* version 0.0.6
+* version 0.0.8
 
 ##Changelog
+* V0.0.8 Milestone: Added dialogs
 * V0.0.7 Added Galleries views
 * V0.0.6 Added a Content Slider view
 * V0.0.5 Added a Vertical Menu and Tabs
@@ -18,7 +19,8 @@ Download and unzip the package
 
 ##Dependencies: 
 
-1. pure.css
-2. jQuery
-3. Slicknav.js
-
+1. pure.css http://purecss.io/
+2. jQuery https://jquery.com/
+3. Slicknav.js http://slicknav.com/
+4. Lightbox http://lokeshdhakar.com/projects/lightbox2/
+5. Dialog Polyfill https://github.com/GoogleChrome/dialog-polyfill

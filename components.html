@@ -332,12 +332,50 @@
 				</section>									
 			</article>	
 			<article>
-				<h2 class="toc-item" id="dialogs">Dialogs</h2>
+				<header>
+					<h2 class="toc-item" id="dialogs">Dialogs</h2>
+					<p>Modal dialogs, uses the 'dialog' tag and tha native HTML5 API, for compatibility uses the <a href="https://github.com/GoogleChrome/dialog-polyfill">Chrome polyfill</a>.<br>
+					</p>
+					<p>Just set identity between the <mark>button ID</mark> and <mark>the dialog NAME</mark>.</p>
+				</header>
 				<section>
-					<h3 class="toc-item" id="dialogs">Dialogs</h3>					
+					<h3>Simple dialog</h3>
+						<div class="jast-code-box">
+							<button id="dialog-example" class="pure-button button-success show-dialog">
+								Launch Dialog
+							</button>
+							
+							<dialog data-name="dialog-example" role="dialog" id="normal-dialog">
+								<p>Hi, I'm a dialog!</p>
+								<button class="pure-button button-success close-dialog">Okay</button>
+							</dialog>
+						</div>
+					<h3>Modal dialog</h3>
+					<p>Add the class <mark>modal</mark> to open it in <em>modal way</em></p>
+					<div class="jast-code-box">
+						<button id="modal-dialog-example" class="pure-button button-success show-dialog">
+							Launch Styled Modal
+						</button>			
+						<dialog data-name="modal-dialog-example" role="dialog" id="modal-dialog"  class="modal">
+							<div class="dialog-header">Header</div>
+							<div class="dialog-body">
+								<p>Hi, I'm a styled modal!</p>
+							</div>
+							<div id="dialog-footer">
+								<button class="pure-button button-success close-dialog">Okay</button>
+							</div>
+						</dialog>
+					</div>						
+					
 				</section>
+				<footer>
+					<details>
+						<summary>Sources and inspirations</summary>
+						<p><a href="http://codepen.io/matt-west/full/bnhiC">http://codepen.io/matt-west/full/bnhiC</a></p>
+					</details>
+				</footer>
 			</article>
-			<article>									
+			<!--article>									
 				<section>
 					<h3 class="toc-item" id="grids">Grids</h3>
 					
@@ -346,7 +384,7 @@
 					<h3 class="toc-item" id="tables">Tables</h3>
 					
 				</section>				
-			</article>
+			</article-->
 		
 		</main>						
 		<footer class="text-center">
@@ -362,6 +400,7 @@
 		<!--script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script-->
 		<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 		<script src="js/vendor/jquery.slicknav.js"></script>
+		<script src="js/vendor/dialog-polyfill.js"></script>
 		<script src="js/plugins.js"></script>
 		<script src="js/main.js"></script>
 		<!--HTML HELPER: Code ready for you $(document).ready jQuery code ;)

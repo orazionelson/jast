@@ -335,14 +335,54 @@
 	        scrollTop: offsetTop
 	    }, time);           
 	}
-		
+
+	/**
+	 * Function for the JAST Dialogs
+	 * by Alfredo Cosco
+	 * 2015
+	 * cf. http://codepen.io/matt-west/full/bnhiC
+	 * **/
+	$.fn.jastDialog = function( action ) {
+
+        if ( action === "open") {
+            // Open popup code.
+             
+        $(this).on('click', function(e) {  
+		e.preventDefault();	
+		var dialogId =$(this).attr('id');
+		var btn = $('#'+dialogId)[0];
+		var typeId = $('dialog[data-name='+dialogId+']')[0];
+				
+		dialogPolyfill.registerDialog(typeId);
+
+		if($(typeId)
+		.hasClass('modal')){
+			typeId.showModal();
+			}
+		else {
+			typeId.show();
+			}
+		});
+        }
+ 
+        if ( action === "close" ) {
+            // Close popup code.	
+        $(this).on('click',function(e){
+		e.preventDefault();
+		var typeId = $(this).closest('dialog')[0];
+		//console.log(typeId);
+		typeId.close();
+		});
+		};
+	};
+	
 	/*******************************************
 	 * Dynamically charge script
 	 * in function of selectors/ids/classes.
 	 * A very basically use of: 
 	 * http://api.jquery.com/jquery.getscript/
 	 * by Alfredo Cosco 2015
-	 * ****************************************/
+	 * ***************************************
 	$.cachedScript = function( url, options ) {
 	 
 	  // Allow user to set any option except for dataType, cache, and url
@@ -355,7 +395,8 @@
 	  // Use $.ajax() since it is more flexible than $.getScript
 	  // Return the jqXHR object so we can chain callbacks
 	  return jQuery.ajax( options );
-	};
+	};*/
+	
 	
 	/**
 	 * Put style only on the first letter of each word in a phrase
@@ -414,51 +455,7 @@
 		
 		//Make a pretty pre
 		$('.show-me-the-code pre').jastPrettyPre();
-	};	
-
-	/**
-	 * Function for the JAST Dialogs
-	 * by Alfredo Cosco
-	 * 2015
-	 * **/
-	$.fn.jastDialog = function( action ) {
-
-        if ( action === "open") {
-            // Open popup code.
-             
-        $(this).on('click', function(e) {  
-		e.preventDefault();	
-		var dialogId =$(this).attr('id');
-		var btn = $('#'+dialogId)[0];
-		var typeId = $('dialog[data-name='+dialogId+']')[0];
-				
-		dialogPolyfill.registerDialog(typeId);
-
-		if($(typeId)
-		.hasClass('modal')){
-			typeId.showModal();
-			}
-		else {
-			typeId.show();
-			}
-		});
-        }
- 
-        if ( action === "close" ) {
-            // Close popup code.	
-        $(this).on('click',function(e){
-		e.preventDefault();
-		var typeId = $(this).closest('dialog')[0];
-		//console.log(typeId);
-		typeId.close();
-		});
-		};
-	};
-	
-
-	
-
-	
+	};		
 
 }( jQuery ));
 
@@ -900,7 +897,11 @@ $(document).ready(function(){
 	$('.jast-gallery').jastGallery();
 	
 	$('.jast-code-box').jastCodeBox();
-	$('.jast-first-letter').jastFirstLetter();				
+	$('.jast-first-letter').jastFirstLetter();	
+	
+	$('.show-dialog').jastDialog('open'),
+	$('.close-dialog').jastDialog('close')
+				
 	$('.same-width').getSameWidth();
 	
 	
